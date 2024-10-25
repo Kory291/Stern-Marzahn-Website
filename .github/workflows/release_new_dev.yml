@@ -6,7 +6,7 @@ on:
 
 jobs:
     build: 
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         container: docker:latest
         steps:
             - name: Checkout code
@@ -30,7 +30,7 @@ jobs:
             id-token: write
     
     rollout_images:
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         needs: build
         steps:
             - name: ssh to server
