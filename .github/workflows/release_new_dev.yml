@@ -28,3 +28,14 @@ jobs:
             contents: read
             packages: write
             id-token: write
+    
+    rollout_images:
+        runs-on: ubuntu:latest
+        steps:
+            - name: ssh to server
+              run: |
+                echo ${{ secrets.SERVER_SSH_KEY }} > ssh_key 
+                ssh -i ssh_key ${{ env.SERVER_USERNAME }}@${{ env.SERVER_ADDRESS }}
+            - name: do some operation
+              run: |
+                ifconfig ens6 
