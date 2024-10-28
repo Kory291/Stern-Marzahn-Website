@@ -32,7 +32,7 @@ jobs:
     rollout_images:
         runs-on: ubuntu-latest
         env:
-          COMPOSE_FILE_PATH: ster-marzahn-website/docker-compose.yml
+          COMPOSE_FILE_PATH: Stern-Marzahn-Website/docker-compose.yml
         needs: build
         steps:
         - name: executing remote ssh commands using password
