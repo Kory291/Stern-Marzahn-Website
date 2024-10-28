@@ -19,7 +19,7 @@ jobs:
 
             - name: Push images
               run: |
-                echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ github.repository_owner }} --password-stdin
+                echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
                 docker tag stern-marzahn-website:latest ghcr.io/kory291/stern-marzahn-website:latest
                 docker tag stern-marzahn-backend:latest ghcr.io/kory291/stern-marzahn-backend:latest
                 docker push ghcr.io/kory291/stern-marzahn-website:latest
