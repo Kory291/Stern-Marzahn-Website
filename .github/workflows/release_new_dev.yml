@@ -43,5 +43,6 @@ jobs:
             key: ${{ secrets.KEY }}
             port: ${{ secrets.PORT }}
             script: |
+              git pull
               sudo docker -f $COMPOSE_FILE_PATH compose down
-              sudo docker -f $COMPOSE_FILE_PATH compose up
+              sudo docker -f $COMPOSE_FILE_PATH -d compose up
