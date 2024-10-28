@@ -31,6 +31,8 @@ jobs:
     
     rollout_images:
         runs-on: ubuntu-latest
+        env:
+          COMPOSE_FILE_PATH: ster-marzahn-website/docker-compose.yml
         needs: build
         steps:
         - name: executing remote ssh commands using password
@@ -40,4 +42,6 @@ jobs:
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.KEY }}
             port: ${{ secrets.PORT }}
-            script: whoami
+            script: |
+              sudo docker $COMPOSE_FILE_PATH compose down
+              sudo docker $COMPOSE_FILE_PATH compose up
