@@ -33,10 +33,11 @@ jobs:
         runs-on: ubuntu-latest
         needs: build
         steps:
-            - name: ssh to server
-              run: |
-                echo ${{ secrets.SERVER_SSH_KEY }} > ssh_key 
-                ssh -i ssh_key ${{ env.SERVER_USERNAME }}@${{ env.SERVER_ADDRESS }}
-            - name: do some operation
-              run: |
-                ifconfig ens6 
+        - name: executing remote ssh commands using password
+          uses: appleboy/ssh-action@v1.1.0
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY }}
+            port: ${{ secrets.PORT }}
+            script: whoami
