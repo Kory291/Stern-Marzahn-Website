@@ -31,8 +31,6 @@ jobs:
     
     rollout_images:
         runs-on: ubuntu-latest
-        env:
-          COMPOSE_FILE_PATH: Stern-Marzahn-Website/docker-compose.yml
         needs: build
         steps:
         - name: executing remote ssh commands using password
@@ -43,6 +41,7 @@ jobs:
             key: ${{ secrets.KEY }}
             port: ${{ secrets.PORT }}
             script: |
+              cd Stern-Marzahn-Website
               git pull
-              sudo docker -f $COMPOSE_FILE_PATH compose down
-              sudo docker -f $COMPOSE_FILE_PATH -d compose up
+              sudo docker compose down
+              sudo docker -d compose up
