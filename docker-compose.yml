@@ -1,0 +1,8 @@
+services:
+  web:
+    image: ghrc.io/kory291/stern-marzahn-website:latest
+    pull_policy: always
+
+  backend:
+    image: ghcr.io/kory291/stern-marzahn-backend:latest
+    pull_policy: always
