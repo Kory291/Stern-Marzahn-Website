@@ -35,13 +35,15 @@ jobs:
         steps:
         - name: executing remote ssh commands using password
           uses: appleboy/ssh-action@v1.1.0
+          env:
+            website_dir: ~/Stern-Marzahn-Website
           with:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.KEY }}
             port: ${{ secrets.PORT }}
             script: |
-              cd Stern-Marzahn-Website
+              cd {{ website_dir }}
               git pull
               sudo docker compose down
-              sudo docker compose up -d
+              sudo docker compose up --env-file .env -d
