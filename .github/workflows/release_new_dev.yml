@@ -46,4 +46,4 @@ jobs:
               cd {{ website_dir }}
               git pull
               sudo docker compose down
-              sudo docker compose up --env-file .env -d
+              sudo docker compose --env-file .env up -d
