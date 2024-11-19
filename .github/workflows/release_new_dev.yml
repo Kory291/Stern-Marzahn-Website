@@ -44,6 +44,7 @@ jobs:
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.KEY }}
             port: ${{ secrets.PORT }}
+            envs: WEBSITE_DIR
             script: |
               echo $WEBSITE_DIR 
               cd $WEBSITE_DIR
