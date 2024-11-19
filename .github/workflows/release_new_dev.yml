@@ -4,6 +4,11 @@ on:
     push: 
         branches: main
 
+
+env:
+  FRONTEND_IMAGE: ghcr.io/kory291/stern-marzahn-website:latest
+  BACKEND_IMAGE: ghcr.io/kory291/stern-marzahn-backend:latest
+
 jobs:
     build: 
         runs-on: ubuntu-latest
@@ -14,16 +19,14 @@ jobs:
             
             - name: Build images
               run: |
-                docker build -f stern-marzahn-website/Dockerfile -t stern-marzahn-website:latest stern-marzahn-website
-                docker build -f stern-marzahn-backend/Dockerfile -t stern-marzahn-backend:latest stern-marzahn-backend
+                docker build -f stern-marzahn-website/Dockerfile -t $FRONTEND_IMAGE:latest --cache-from $FRONTEND_IMAGE:latest stern-marzahn-website
+                docker build -f stern-marzahn-backend/Dockerfile -t $BACKEND_IMAGE:latest --cache-from $BACKEND_IMAGE:latest stern-marzahn-backend
 
             - name: Push images
               run: |
                 echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-                docker tag stern-marzahn-website:latest ghcr.io/kory291/stern-marzahn-website:latest
-                docker tag stern-marzahn-backend:latest ghcr.io/kory291/stern-marzahn-backend:latest
-                docker push ghcr.io/kory291/stern-marzahn-website:latest
-                docker push ghcr.io/kory291/stern-marzahn-backend:latest
+                docker push $FRONTEND_IMAGE:latest
+                docker push $BACKEND_IMAGE:latest
         permissions:
             contents: read
             packages: write
@@ -46,5 +49,5 @@ jobs:
               echo $WEBSITE_DIR 
               cd $WEBSITE_DIR
               git pull
-              sudo docker compose down
-              sudo docker compose --env-file .env up -d
+              sudo docker compose -f $WEBSITE_DIR/docker-compose.yml down
+              sudo docker compose --env-file $WEBSITE_DIR/.env up -d
