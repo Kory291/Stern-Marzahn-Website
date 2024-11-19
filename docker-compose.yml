@@ -3,10 +3,10 @@ services:
     image: ghcr.io/kory291/stern-marzahn-website:latest
     pull_policy: always
     ports: 
-      - "{{ FRONTEND_PORT }}:4200"
+      - "${FRONTEND_PORT}:4200"
 
   backend:
     image: ghcr.io/kory291/stern-marzahn-backend:latest
     pull_policy: always
     ports: 
-      - "{{ BACKEND_PORT }}:8000"
+      - "${BACKEND_PORT}:8000"
