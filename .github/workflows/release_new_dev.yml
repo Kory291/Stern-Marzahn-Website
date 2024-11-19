@@ -8,6 +8,7 @@ on:
 env:
   FRONTEND_IMAGE: ghcr.io/kory291/stern-marzahn-website
   BACKEND_IMAGE: ghcr.io/kory291/stern-marzahn-backend
+  WEBSITE_DIR: ~/Stern-Marzahn-Website
 
 jobs:
     build: 
@@ -38,8 +39,6 @@ jobs:
         steps:
         - name: executing remote ssh commands using password
           uses: appleboy/ssh-action@v1.1.0
-          env:
-            WEBSITE_DIR: ~/Stern-Marzahn-Website
           with:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
