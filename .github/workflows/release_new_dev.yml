@@ -6,8 +6,8 @@ on:
 
 
 env:
-  FRONTEND_IMAGE: ghcr.io/kory291/stern-marzahn-website:latest
-  BACKEND_IMAGE: ghcr.io/kory291/stern-marzahn-backend:latest
+  FRONTEND_IMAGE: ghcr.io/kory291/stern-marzahn-website
+  BACKEND_IMAGE: ghcr.io/kory291/stern-marzahn-backend
 
 jobs:
     build: 
