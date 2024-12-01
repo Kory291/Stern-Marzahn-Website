@@ -6,8 +6,6 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
   standalone: true,
   imports: [NavBarComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.sass'
+  styleUrl: './header.component.sass',
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}

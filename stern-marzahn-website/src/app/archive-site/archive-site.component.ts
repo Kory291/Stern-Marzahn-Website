@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './archive-site.component.html',
-  styleUrl: './archive-site.component.sass'
+  styleUrl: './archive-site.component.sass',
 })
-export class ArchiveSiteComponent {
-
-}
+export class ArchiveSiteComponent {}

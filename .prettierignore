@@ -1,0 +1,5 @@
+stern-marzahn-backend/*
+**/.git
+**/.svn
+**/.hg
+**/node_modules

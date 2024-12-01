@@ -9,7 +9,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, SideBarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrl: './app.component.sass',
 })
 export class AppComponent {
   title = 'Stern Marzahn';
