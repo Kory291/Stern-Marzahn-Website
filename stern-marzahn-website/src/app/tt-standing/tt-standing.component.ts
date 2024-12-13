@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './tt-standing.component.html',
-  styleUrl: './tt-standing.component.sass'
+  styleUrl: './tt-standing.component.sass',
 })
-export class TtStandingComponent {
-
-}
+export class TtStandingComponent {}

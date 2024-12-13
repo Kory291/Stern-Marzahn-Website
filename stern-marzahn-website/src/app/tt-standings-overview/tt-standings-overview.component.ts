@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './tt-standings-overview.component.html',
-  styleUrl: './tt-standings-overview.component.sass'
+  styleUrl: './tt-standings-overview.component.sass',
 })
-export class TtStandingsOverviewComponent {
-
-}
+export class TtStandingsOverviewComponent {}
