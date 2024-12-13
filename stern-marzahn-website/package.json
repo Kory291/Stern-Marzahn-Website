@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:stern-marzahn-website": "node dist/stern-marzahn-website/server/server.mjs"
+    "serve:ssr:stern-marzahn-website": "node dist/stern-marzahn-website/server/server.mjs",
+    "pre-commit": "npx prettier --write ."
   },
   "private": true,
   "dependencies": {
