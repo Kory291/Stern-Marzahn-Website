@@ -4,9 +4,11 @@ services:
     pull_policy: always
     ports: 
       - "${FRONTEND_PORT}:4200"
+    restart: unless-stopped
 
   backend:
     image: ghcr.io/kory291/stern-marzahn-backend:latest
     pull_policy: always
     ports: 
       - "${BACKEND_PORT}:8000"
+    restart: unless-stopped
