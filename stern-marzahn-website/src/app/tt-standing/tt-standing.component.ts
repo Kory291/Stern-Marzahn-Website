@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-tt-standing',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
   templateUrl: './tt-standing.component.html',
   styleUrl: './tt-standing.component.sass',
 })
-export class TtStandingComponent {}
+@Injectable()
+export class TtStandingComponent {
+
+  title: string
+  url: string
+
+  constructor(title: string, url: string) {
+    this.title = title;
+    this.url = url;
+  }
+}
