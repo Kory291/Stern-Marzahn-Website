@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-tt-standing',
@@ -7,14 +7,13 @@ import { Component, Inject } from '@angular/core';
   templateUrl: './tt-standing.component.html',
   styleUrl: './tt-standing.component.sass',
 })
-@Injectable()
 export class TtStandingComponent {
 
-  title: string
-  url: string
+  team_title = input<string>("");
+  iframe_url = input<string>("");
 
-  constructor(title: string, url: string) {
-    this.title = title;
-    this.url = url;
+  constructor() {
+    console.log("team_title: " + this.team_title);
+    console.log("iframe_url: " + this.iframe_url);
   }
 }

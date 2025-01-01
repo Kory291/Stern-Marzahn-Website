@@ -1,1 +1,8 @@
-<app-tt-standing></app-tt-standing>
+<ul>
+    <!-- <li *ngFor="let team of teams">
+        <app-tt-standing [iframe_url]="team.url" [team_title]="team.title"></app-tt-standing>
+    </li> -->
+    <li>
+        <app-tt-standing [iframe_url]="teams[0].url" [team_title]="teams[0].title"></app-tt-standing>
+    </li>
+</ul>
